@@ -1,1 +1,1 @@
-namespace simulado.UseCases.Fanfic.CreateReadList;
+namespace simulado.UseCases.ReadList.CreateReadList;
