@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace simulado.UseCases.Fanfic.CreateProfile;
 
 public record CreateProfilePayload {
@@ -5,11 +7,11 @@ public record CreateProfilePayload {
     public string Username;
 
     [Required]
-    [EmailAdress]
+    [EmailAddress]
     public string Email;
 
     [Required]
-    [MinLenght(8)]
+    [MinLength(8)]
     public string Password;
     public string Description;
 

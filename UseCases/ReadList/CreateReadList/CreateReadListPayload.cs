@@ -1,6 +1,7 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace simulado.UseCases.ReadList.CreateReadList;
 
 public record CreateReadListPayload {
-    [Required]
-    public string Title;
+    public required string Title;
 }
