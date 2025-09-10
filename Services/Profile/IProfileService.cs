@@ -5,5 +5,6 @@ namespace simulado.Services.Profile;
 public interface IProfileService
 {
     Task<int> CreateProfile(User profile);
-    Task<User?> GetProfile(string username);
+    Task<User?> GetUserByLogin(string username);
+    Task<User?> GetUserByID(int ID);
 }

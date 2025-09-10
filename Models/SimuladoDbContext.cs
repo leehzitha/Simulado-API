@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using simulado.Models;
 
-namespace dtaplace.Models;
+namespace simulado.Models;
 
 public class SimuladoDbContext(DbContextOptions<SimuladoDbContext> opts) : DbContext(opts)
 {

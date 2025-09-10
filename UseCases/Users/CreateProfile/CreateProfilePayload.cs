@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace simulado.UseCases.Fanfic.CreateProfile;
+namespace simulado.UseCases.Users.CreateProfile;
 
 public record CreateProfilePayload {
     [Required]

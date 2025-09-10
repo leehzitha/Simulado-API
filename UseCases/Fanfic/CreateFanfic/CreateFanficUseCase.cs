@@ -1,15 +1,34 @@
-namespace simulado.UseCases.Fanfic.CreateFanfic;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Http.HttpResults;
+using simulado.Models;
+using simulado.Services.Fanfics;
+using simulado.Services.Profile;
+
+namespace simulado.UseCases.Fanfics.CreateFanfic;
 
 public class CreateFanficUseCase(
-    
+    IFanficService fanficService,
+    IProfileService profileService
 )
 {
+    public async Task<Result<CreateFanficResponse>> Do(CreateFanficPayload payload)
+    {
+        var creator = await profileService.GetUserByID(payload.CreatorID);
+
+        if (creator is null)
+        {
+            return Result<CreateFanficResponse>.Fail("Invalid creator");
+        }
+
+        var fanfic = new Fanfic
+        {
+            Title = payload.Title,
+            CreatorID = payload.CreatorID,
+            Creator = creator
+        };
+
+        await fanficService.CreateFanfic(fanfic);
         return Result<CreateFanficResponse>.Success(new());
 
-        //Usuários logados podem criar salas de desenho. Para isso definem o nome da sala e seu tamanho.
-        // Existem limites de tamanho com base no tipo de usuário.
-        // Usuários com plano Gratuito podem ter salas de até 64x64.
-        // Usuários com plano Gold podem ter salas de até 128x128.
-        // Usuários com plano Platinum podem ter salas de até 256x256.
     }
 }

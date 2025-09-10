@@ -2,7 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Fanfix.Services.JWT;
+namespace simulado.Services.JWT;
 
 public class JWTService(SecurityKey securityKey) : IJWTService
 {

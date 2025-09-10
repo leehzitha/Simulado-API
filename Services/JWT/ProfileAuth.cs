@@ -1,4 +1,4 @@
-namespace Fanfix.Services.JWT;
+namespace simulado.Services.JWT;
 
 public record ProfileAuth (
     int ID,

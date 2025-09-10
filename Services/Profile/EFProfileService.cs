@@ -1,6 +1,6 @@
 using simulado.Models;
 using Microsoft.EntityFrameworkCore;
-using dtaplace.Models;
+
 
 namespace simulado.Services.Profile;
 
@@ -13,10 +13,17 @@ public class ProfileService(SimuladoDbContext ctx) : IProfileService
         return user.ID;
     }
 
-    public async Task<User?> GetProfile(string login)
+    public async Task<User?> GetUserByLogin(string login)
     {
         return await ctx.Users.FirstOrDefaultAsync(
             p => p.Username == login || p.Email == login
+        );
+    }
+
+    public async Task<User?> GetUserByID(int ID)
+    {
+        return await ctx.Users.FirstOrDefaultAsync(
+            u => u.ID == ID
         );
     }
 }
